@@ -1,8 +1,17 @@
+import axios from 'axios'
+import { useEffect } from 'react'
 import DatePickerForm from '../DatePickerForm'
 import NotificationButton from '../NotificationButton'
 import './style.css'
 
 function SalesCard() {
+    useEffect(() => {
+        axios.get('https://dsmeta-guilhermecostam.herokuapp.com/sales')
+            .then(response => {
+                console.log(response.data)
+            })
+    }, [])
+
     return (
         <div className="dsmeta-card">
             <h2>Vendas</h2>
